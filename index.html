@@ -1,12 +1,16 @@
+<!DOCTYPE html>
 <html>
-<head><title>My Pushups page</title></head>
+<head>
+<meta charset="utf-8">
+<title>My Pushups page</title>
 <style>
 p { color: green; font-size: 24px; }
 </style>
+</head>
 <body>
-<p id="mylabel">Ready to start???</p>
-<p><button id="myButton">Go</button></p>
-<a href="http://www.twohundredsitups.com/week3.html">pushups site</a>
+<div id="mylabel">Ready to start???</div>
+<div><button id="myButton">Go</button></div>
+<div><a href="http://www.twohundredsitups.com/week3.html">pushups site</a></div>
 <script>
   var stepCount = 0;
   var steps = [
@@ -22,7 +26,7 @@ p { color: green; font-size: 24px; }
     "done!"];
   document.getElementById('myButton').onclick = function() {
     document.getElementById('mylabel').innerHTML = steps[stepCount];
-    if (stepCount < steps.length - 1) stepCount++;
+    if (stepCount + 1 < steps.length) stepCount++;
   };
 </script>
 </body>
