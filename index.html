@@ -5,11 +5,25 @@ p { color: green; font-size: 24px; }
 </style>
 <body>
 <p id="mylabel">Ready to start???</p>
-<button id="myButton">Start</button>
+<p><button id="myButton">Go</button></p>
+<a href="http://www.twohundredsitups.com/week3.html">pushups site</a>
 <script>
-document.getElementById('myButton').onclick = function() {
-  document.getElementById('mylabel').innerHTML = 'do 12 pushups';
-};
+  var stepCount = 0;
+  var steps = [
+    "do 15 situps",
+    "rest 60 seconds",
+    "do 18 situps",
+    "rest 60 seconds",
+    "do 11 situps",
+    "rest 60 seconds",
+    "do 11 situps",
+    "rest 60 seconds",
+    "do at least 14 situps",
+    "done!"];
+  document.getElementById('myButton').onclick = function() {
+    document.getElementById('mylabel').innerHTML = steps[stepCount];
+    if (stepCount < steps.length - 1) stepCount++;
+  };
 </script>
 </body>
 </html>
