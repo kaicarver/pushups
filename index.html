@@ -6,38 +6,65 @@
   <title>My Pushups page</title>
   <style>
     body { text-align: center; font-family: Arial; }
-    button { font-size: 2em; }
+    #myGoButton { font-size: 2em; }
     #myLabel { font-size: 2em; }
     #mySet { font-size: 1em; }
   </style>
 </head>
 <body>
+  <div>
+    <button id="myPushupsButton">Pushups</button>
+    <button id="mySitupsButton">Situps</button>
+  </div>
   <div id="myLabel">Ready to start???</div>
-  <div><button id="myButton">Go</button></div>
+  <div><button id="myGoButton">Go</button></div>
   <div id="mySet">...</div>
   <div><a href="http://www.twohundredsitups.com/week3.html">pushups site</a></div>
 <script>
-  var stepCount = 0;
-  var steps = [
-    "do 15 situps",
-    "rest 60 seconds",
-    "do 18 situps",
-    "rest 60 seconds",
-    "do 11 situps",
-    "rest 60 seconds",
-    "do 11 situps",
-    "rest 60 seconds",
-    "do at least 14 situps",
-    "done!"];
-  document.getElementById('myButton').onclick = function() {
-    document.getElementById('myLabel').innerHTML = steps[stepCount];
-    if (stepCount + 1 < steps.length) stepCount++;
-  };
-  var html = "";
-  for (var i=0; i < steps.length; i++) {
-    html += "<div>" + steps[i] + "</div>";
-  }
-  document.getElementById('mySet').innerHTML = html;
+    var program = {
+      "pushups" : [
+	"do 16 pushups",
+	"rest 120 seconds",
+	"do 18 pushups",
+	"rest 120 seconds",
+	"do 13 pushups",
+	"rest 120 seconds",
+	"do 13 pushups",
+	"rest 120 seconds",
+	"do at least 20 pushups",
+	"done!"],
+      "situps" : [
+	"do 15 situps",
+	"rest 60 seconds",
+	"do 18 situps",
+	"rest 60 seconds",
+	"do 11 situps",
+	"rest 60 seconds",
+	"do 11 situps",
+	"rest 60 seconds",
+	"do at least 14 situps",
+	"done!"]};
+    var steps;
+    var currentStep;
+    function setProgram(name) {
+      steps = program[name];
+      currentStep = 0;
+      var html = "";
+      for (var i=0; i < steps.length; i++) {
+	html += '<div id="step' + i + '">' + steps[i] + "</div>";
+      }
+      document.getElementById('mySet').innerHTML = html;
+      document.getElementById('myLabel').innerHTML = "Ready to Start???";
+    }
+    setProgram("pushups");
+
+    document.getElementById('myGoButton').onclick = function() {
+      document.getElementById('myLabel').innerHTML = steps[currentStep];
+      document.getElementById('step'+currentStep).style.backgroundColor = "pink";
+      if (currentStep + 1 < steps.length) currentStep++;
+    };
+    document.getElementById('myPushupsButton').onclick = function() { setProgram("pushups"); }
+    document.getElementById('mySitupsButton').onclick = function() { setProgram("situps"); }
 </script>
 </body>
 </html>
