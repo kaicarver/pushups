@@ -61,10 +61,10 @@
     document.getElementById('myGoButton').onclick = function() {
       document.getElementById('myLabel').innerHTML = steps[currentStep];
       document.getElementById('step'+currentStep).style.backgroundColor = "pink";
-      if (currentStep + 1 < steps.length) currentStep++;
+      if (currentStep + 1 < steps.length) { currentStep++; }
     };
-    document.getElementById('myPushupsButton').onclick = function() { setProgram("pushups"); }
-    document.getElementById('mySitupsButton').onclick = function() { setProgram("situps"); }
+    document.getElementById('myPushupsButton').onclick = function() { setProgram("pushups"); };
+    document.getElementById('mySitupsButton').onclick = function() { setProgram("situps"); };
 </script>
 </body>
 </html>
