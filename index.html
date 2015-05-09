@@ -9,7 +9,8 @@
     #myGoButton { font-size: 4em; }
     #myLabel { font-size: 1.8em; padding-top: 0.8em; padding-bottom: 0.8em; }
     #mySet { font-size: 1em; padding: 0.8em; color:gray; }
-    #fork { font-size: 0.8em; padding: 0.8em; }
+    .link { padding: 0.8em; }
+    #fork { font-size: 0.8em; }
   </style>
 </head>
 <body>
@@ -20,13 +21,18 @@
   <div id="myLabel">Ready to start???</div>
   <div><button id="myGoButton">Go</button></div>
   <div id="mySet">...</div>
-  <div><a href="http://www.hundredpushups.com/week4.html" target="_blank">pushups site</a></div>
-  <div id="fork"><a href="https://github.com/kaicarver/pushups/">fork me on Github!</div>
+  <div>
+    <button id="myNextSessionButton">Prev</button>
+    session: <span id="mySession">session name</span>
+    <button id="myNextSessionButton">Next</button>
+  </div>
+  <div class="link"><a href="http://www.hundredpushups.com/week4.html" target="_blank">pushups site</a></div>
+  <div class="link" id="fork"><a href="https://github.com/kaicarver/pushups/">fork me on Github!</div>
 <script>
-    var program = {
+    var programs = {
       'pushups' : [
 	{
-	  session: 'w5t1d1',
+	  name: 'w5t1d1',
 	  steps: [
 	    "do 16 pushups",
 	    "rest 60 seconds",
@@ -41,7 +47,7 @@
 	  ]
 	},
 	{
-	  session: 'w5t1d2',
+	  name: 'w5t1d2',
 	  steps : [
 	    "do 16 pushups",
 	    "rest 90 seconds",
@@ -58,7 +64,7 @@
       ],
       "situps" : [
 	{
-	  session: 'w3t1d1',
+	  name: 'w3t1d1',
 	  steps: [
 	    "do 15 situps",
 	    "rest 60 seconds",
@@ -74,18 +80,25 @@
 	}
       ]
     };
+    var currentSession;
     var steps;
     var currentStep;
-    function setProgram(name) {
-      steps = program[name][0].steps;
+    function setProgram(program) {
+      currentSession = 0;
+      setSession(program, currentSession);
+    }
+    function setSession(program, session) {
+      steps = programs[program][session].steps;
       currentStep = 0;
       var html = "";
       for (var i=0; i < steps.length; i++) {
 	html += '<div id="step' + i + '">' + steps[i] + "</div>";
       }
+      document.getElementById('mySession').innerText = programs[program][session].name;
       document.getElementById('mySet').innerHTML = html;
       document.getElementById('myLabel').innerHTML = "Ready to Start???";
     }
+
     setProgram("pushups");
 
     document.getElementById('myGoButton').onclick = function() {
