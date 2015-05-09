@@ -22,7 +22,7 @@
   <div><button id="myGoButton">Go</button></div>
   <div id="mySet">...</div>
   <div>
-    <button id="myNextSessionButton">Prev</button>
+    <button id="myPrevSessionButton">Prev</button>
     session: <span id="mySession">session name</span>
     <button id="myNextSessionButton">Next</button>
   </div>
@@ -49,15 +49,15 @@
 	{
 	  name: 'w5t1d2',
 	  steps : [
-	    "do 16 pushups",
+	    "do 17 pushups",
 	    "rest 90 seconds",
-	    "do 18 pushups",
+	    "do 19 pushups",
 	    "rest 90 seconds",
-	    "do 13 pushups",
+	    "do 14 pushups",
 	    "rest 90 seconds",
-	    "do 13 pushups",
+	    "do 14 pushups",
 	    "rest 90 seconds",
-	    "do at least 20 pushups",
+	    "do at least 22 pushups",
 	    "done!"
 	  ]
 	}
@@ -80,21 +80,23 @@
 	}
       ]
     };
+    var currentProgram;
     var currentSession;
     var steps;
     var currentStep;
     function setProgram(program) {
-      currentSession = 0;
-      setSession(program, currentSession);
+      currentProgram = program;
+      setSession(0);
     }
-    function setSession(program, session) {
-      steps = programs[program][session].steps;
+    function setSession(session) {
+      currentSession = session;
+      steps = programs[currentProgram][currentSession].steps;
       currentStep = 0;
       var html = "";
       for (var i=0; i < steps.length; i++) {
 	html += '<div id="step' + i + '">' + steps[i] + "</div>";
       }
-      document.getElementById('mySession').innerText = programs[program][session].name;
+      document.getElementById('mySession').innerText = programs[currentProgram][currentSession].name;
       document.getElementById('mySet').innerHTML = html;
       document.getElementById('myLabel').innerHTML = "Ready to Start???";
     }
@@ -105,6 +107,18 @@
       document.getElementById('myLabel').innerHTML = steps[currentStep];
       document.getElementById('step'+currentStep).style.backgroundColor = "pink";
       if (currentStep + 1 < steps.length) { currentStep++; }
+    };
+    document.getElementById('myNextSessionButton').onclick = function() {
+      if (currentSession + 1 < programs[currentProgram].length) {
+	currentSession++;
+	setSession(currentSession);
+      }
+    };
+    document.getElementById('myPrevSessionButton').onclick = function() {
+      if (currentSession - 1 >= 0) {
+	currentSession--;
+	setSession(currentSession);
+      }
     };
     document.getElementById('myPushupsButton').onclick = function() { setProgram("pushups"); };
     document.getElementById('mySitupsButton').onclick = function() { setProgram("situps"); };
