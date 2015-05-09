@@ -24,32 +24,60 @@
   <div id="fork"><a href="https://github.com/kaicarver/pushups/">fork me on Github!</div>
 <script>
     var program = {
-      "pushups" : [
-	"do 16 pushups",
-	"rest 120 seconds",
-	"do 18 pushups",
-	"rest 120 seconds",
-	"do 13 pushups",
-	"rest 120 seconds",
-	"do 13 pushups",
-	"rest 120 seconds",
-	"do at least 20 pushups",
-	"done!"],
+      'pushups' : [
+	{
+	  session: 'w5t1d1',
+	  steps: [
+	    "do 16 pushups",
+	    "rest 60 seconds",
+	    "do 18 pushups",
+	    "rest 60 seconds",
+	    "do 13 pushups",
+	    "rest 60 seconds",
+	    "do 13 pushups",
+	    "rest 60 seconds",
+	    "do at least 20 pushups",
+	    "done!"
+	  ]
+	},
+	{
+	  session: 'w5t1d2',
+	  steps : [
+	    "do 16 pushups",
+	    "rest 90 seconds",
+	    "do 18 pushups",
+	    "rest 90 seconds",
+	    "do 13 pushups",
+	    "rest 90 seconds",
+	    "do 13 pushups",
+	    "rest 90 seconds",
+	    "do at least 20 pushups",
+	    "done!"
+	  ]
+	}
+      ],
       "situps" : [
-	"do 15 situps",
-	"rest 60 seconds",
-	"do 18 situps",
-	"rest 60 seconds",
-	"do 11 situps",
-	"rest 60 seconds",
-	"do 11 situps",
-	"rest 60 seconds",
-	"do at least 14 situps",
-	"done!"]};
+	{
+	  session: 'w3t1d1',
+	  steps: [
+	    "do 15 situps",
+	    "rest 60 seconds",
+	    "do 18 situps",
+	    "rest 60 seconds",
+	    "do 11 situps",
+	    "rest 60 seconds",
+	    "do 11 situps",
+	    "rest 60 seconds",
+	    "do at least 14 situps",
+	    "done!"
+	  ]
+	}
+      ]
+    };
     var steps;
     var currentStep;
     function setProgram(name) {
-      steps = program[name];
+      steps = program[name][0].steps;
       currentStep = 0;
       var html = "";
       for (var i=0; i < steps.length; i++) {
