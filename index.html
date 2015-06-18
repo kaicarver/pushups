@@ -27,20 +27,20 @@
     <button id="myNextSessionButton">Next</button>
   </div>
   <div class="link"><a href="http://www.hundredpushups.com/week4.html" target="_blank">pushups site</a></div>
-  <div class="link" id="fork"><a href="https://github.com/kaicarver/pushups/">fork me on Github!</div>
+  <div class="link" id="fork"><a href="https://github.com/kaicarver/pushups/">fork me on Github!</a></div>
 <script>
     var programs = {
       'pushups' : [
 	{
 	  name: 'w5t1d1',
 	  steps: [
-	    "do 16 pushups",
+	    "do 17 pushups",
 	    "rest 60 seconds",
-	    "do 18 pushups",
+	    "do 19 pushups",
 	    "rest 60 seconds",
-	    "do 13 pushups",
+	    "do 15 pushups",
 	    "rest 60 seconds",
-	    "do 13 pushups",
+	    "do 15 pushups",
 	    "rest 60 seconds",
 	    "do at least 20 pushups",
 	    "done!"
@@ -49,15 +49,21 @@
 	{
 	  name: 'w5t1d2',
 	  steps : [
-	    "do 17 pushups",
-	    "rest 90 seconds",
-	    "do 19 pushups",
-	    "rest 90 seconds",
-	    "do 14 pushups",
-	    "rest 90 seconds",
-	    "do 14 pushups",
-	    "rest 90 seconds",
-	    "do at least 22 pushups",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 13 pushups",
+	    "rest 45 seconds",
+	    "do 13 pushups",
+	    "rest 45 seconds",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 9 pushups",
+	    "rest 45 seconds",
+	    "do at least 25 pushups",
 	    "done!"
 	  ]
 	}
@@ -96,7 +102,7 @@
       for (var i=0; i < steps.length; i++) {
 	html += '<div id="step' + i + '">' + steps[i] + "</div>";
       }
-      document.getElementById('mySession').innerText = programs[currentProgram][currentSession].name;
+      document.getElementById('mySession').innerHTML = programs[currentProgram][currentSession].name;
       document.getElementById('mySet').innerHTML = html;
       document.getElementById('myLabel').innerHTML = "Ready to Start???";
     }
