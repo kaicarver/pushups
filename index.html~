@@ -18,85 +18,19 @@
     <button id="myPushupsButton">Pushups</button>
     <button id="mySitupsButton">Situps</button>
   </div>
+  <div id="myLabel">Ready to start???</div>
+  <div><button id="myGoButton">Go</button></div>
+  <div id="mySet">...</div>
   <div>
     <button id="myPrevSessionButton">Prev</button>
     session: <span id="mySession">session name</span>
     <button id="myNextSessionButton">Next</button>
   </div>
-  <div id="myLabel">Ready to start???</div>
-  <div><button id="myGoButton">Go</button></div>
-  <div id="mySet">...</div>
   <div class="link"><a href="http://www.hundredpushups.com/week4.html" target="_blank">pushups site</a></div>
   <div class="link" id="fork"><a href="https://github.com/kaicarver/pushups/">fork me on Github!</a></div>
 <script>
     var programs = {
       'pushups' : [
-	{
-	  name: 'w3t2d1',
-	  steps: [
-	    "do 12 pushups",
-	    "rest 60 seconds",
-	    "do 17 pushups",
-	    "rest 60 seconds",
-	    "do 13 pushups",
-	    "rest 60 seconds",
-	    "do 13 pushups",
-	    "rest 60 seconds",
-	    "do at least 17 pushups",
-	    "done!"
-	  ]
-	},
-	{
-	  name: 'w3t2d2',
-	  steps: [
-	    "do 14 pushups",
-	    "rest 90 seconds",
-	    "do 19 pushups",
-	    "rest 90 seconds",
-	    "do 14 pushups",
-	    "rest 90 seconds",
-	    "do 14 pushups",
-	    "rest 90 seconds",
-	    "do at least 19 pushups",
-	    "done!"
-	  ]
-	},
-	{
-	  name: 'w3t2d3',
-	  steps: [
-	    "do 16 pushups",
-	    "rest 120 seconds",
-	    "do 21 pushups",
-	    "rest 120 seconds",
-	    "do 15 pushups",
-	    "rest 120 seconds",
-	    "do 15 pushups",
-	    "rest 120 seconds",
-	    "do at least 21 pushups",
-	    "done!"
-	  ]
-	},
-	{
-	  name: 'w4t1d1',
-	  steps : [
-	    "[not yet implemented]",
-	    "done!"
-	  ]
-	},	
-	{
-	  name: 'w4t1d2',
-	  steps : [
-	    "[not yet implemented]",
-	    "done!"
-	  ]
-	},	
-	{
-	  name: 'w4t1d3',
-	  steps : [
-	    "[not yet implemented]",
-	    "done!"
-	  ]
-	},	
 	{
 	  name: 'w5t1d1',
 	  steps: [
@@ -115,17 +49,24 @@
 	{
 	  name: 'w5t1d2',
 	  steps : [
-	    "[not yet implemented]",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 13 pushups",
+	    "rest 45 seconds",
+	    "do 13 pushups",
+	    "rest 45 seconds",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 10 pushups",
+	    "rest 45 seconds",
+	    "do 9 pushups",
+	    "rest 45 seconds",
+	    "do at least 25 pushups",
 	    "done!"
 	  ]
-	},	
-	{
-	  name: 'w5t1d3',
-	  steps : [
-	    "[not yet implemented]",
-	    "done!"
-	  ]
-	}	
+	}
       ],
       "situps" : [
 	{
